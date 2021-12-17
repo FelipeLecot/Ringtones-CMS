@@ -3,6 +3,7 @@
 	include 'Login.php';
 
     $orderBy = $_GET['filter'];
+    $last = $_GET['latest'];
 
     function orderBy($orderBy) {
         if ($orderBy == 'l') {
@@ -18,7 +19,7 @@
 
     $connect = mysqli_connect($host, $db_username, $db_password, $db_name);
 
-    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones " . orderBy($orderBy) . " LIMIT 10";
+    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . orderBy($orderBy) . " LIMIT 10";
 
     $result = mysqli_query($connect,$query);
 
@@ -32,6 +33,8 @@
         
         $ringtoneList['list'][] = json_encode($ringtoneData['data'], true);
     }
+
+    mysqli_close($connect);
 
     echo json_encode($ringtoneList, true);
 ?>
