@@ -1,0 +1,139 @@
+#user_group_label {
+  cursor: pointer;
+  margin-bottom: 0px;
+  padding: 12px;
+  margin: 24px 0;
+  color: lightskyblue;
+  border: lightskyblue 3px solid;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.action-btn {
+}
+
+.upload-button {
+  background: lightskyblue;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.upload-button {
+}
+
+.upload-button:hover, .upload-button:active, .upload-button:focus {
+  border: none;
+  background: lightskyblue;
+  box-shadow: none!important;
+}
+
+.cont-upload {
+  background: #ffffff;
+  margin: 24px;
+}
+
+.upload-ringtone {
+  border: lightskyblue 3px solid;
+  background: none;
+  border-radius: 25px;
+  padding: 9px 25px;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.m-30 {
+  margin: 0.5rem 30%;
+}
+
+.upload-ringtone {
+  box-shadow: none!important;
+}
+
+.navigation-search {
+  background: white;
+  border-radius: 25px;
+  color: lightskyblue;
+}
+
+.search-form {
+  width: 40%;
+  margin-left: auto;
+}
+
+@media (max-width:990px) and (min-width: 768px) {
+  .select-order {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width:990px) {
+  .search-form, .navbar-brand {
+    margin-bottom: 8px;
+  }
+}
+
+.navigation-search::placeholder {
+  color: lightskyblue;
+}
+
+@media (min-width: 768px) {
+  .select-order {
+    margin-left: auto;
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 990px) and ( min-width:768px) {
+  .select-order {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 516px) and (min-width: 524px) {
+  .select-order {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 516px) {
+  .select-order {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 516px) and (min-width: 400px) {
+  .select-cat {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .select-order {
+    margin-left: auto!important;
+  }
+}
+
+@media (max-width: 518px) and (min-width: 424px) {
+  #upload-button {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 406px) {
+  .select-cat {
+    margin-left: auto;
+  }
+}
+
