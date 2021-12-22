@@ -19,59 +19,60 @@
     }
 
     function getCategory($filter) {
+        $returnString = "AND ringtoneData ";
+
         if ($filer == 'al') {
-            return 'alarm';
+            $returnString .= "RLIKE 'alarm' ";
         }
         else if ($filter == 'lg') {
-            return 'long';
+            $returnString .= "RLIKE 'long' ";
         }
         else if ($filter == 'st') {
-            return 'short';
-        }
-        else if ($filter == 'al') {
-            return 'alarm';
+            $returnString .= "RLIKE 'short' ";
         }
         else if ($filter == 'nt') {
-            return '(notification|sound)';
+            $returnString .= "RLIKE 'notification|sound' ";
         }
         else if ($filter == 'rg') {
-            return '(ringtones|call)';
+            $returnString .= "RLIKE 'ringtones|call' ";
         }
         else if ($filter == 'ef') {
-            return '(effects|sounds)';
+            $returnString .= "RLIKE 'effects|sounds' ";
         }
         else if ($filter == '8b') {
-            return '(8-bits|8bits|bits|retro)';
+            $returnString .= "RLIKE '8-bits|8bits|bits|retro' ";
         }
         else if ($filter == 'cy') {
-            return '(creepy|horror)';
+            $returnString .= "RLIKE 'creepy|horror' ";
         }
         else if ($filter == 'sg') {
-            return '(song|music)';
+            $returnString .= "RLIKE 'song|music' ";
         }
         else if ($filter == 'kp') {
-            return '(k-pop|pop|korea)';
+            $returnString .= "RLIKE 'k-pop|pop|korea' ";
         }
         else if ($filter == 'rk') {
-            return '(rock|metal)';
+            $returnString .= "RLIKE 'rock|metal' ";
         }
         else if ($filter == 'el') {
-            return 'electronic';
+            $returnString .= "RLIKE 'electronic' ";
         }
         else if ($filter == 'tr') {
-            return 'trap';
+            $returnString .= "RLIKE 'trap' ";
         }
         else if ($filter == 'cl') {
-            return 'classic';
+            $returnString .= "RLIKE 'classic' ";
         }
         else {
-            return '';
+            $returnString = "";
         }
+
+        return $returnString;
     }
 
     $connect = mysqli_connect($host, $db_username, $db_password, $db_name);
 
-    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . orderBy($orderBy) . "AND ringtoneData SIMILAR TO %" . getCategory($cat) . "% LIMIT 10";
+    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat) . orderBy($orderBy) . " LIMIT 10";
 
     $result = mysqli_query($connect,$query);
 
