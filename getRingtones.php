@@ -71,7 +71,7 @@
 
     $connect = mysqli_connect($host, $db_username, $db_password, $db_name);
 
-    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . orderBy($orderBy) . "AND ringtoneData SIMILAR TO %" . getCatergory($cat) . "% LIMIT 10";
+    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . orderBy($orderBy) . "AND ringtoneData SIMILAR TO %" . getCategory($cat) . "% LIMIT 10";
 
     $result = mysqli_query($connect,$query);
 
