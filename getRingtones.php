@@ -90,8 +90,6 @@
 
     $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat, $search) . orderBy($orderBy) . " LIMIT 10";
     
-    echo $query;
-    
     $result = mysqli_query($connect,$query);
 
     $ringtoneList = Array();
