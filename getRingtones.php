@@ -20,12 +20,6 @@
         }
     }
 
-    function byId($id) {
-        if ($id != '' && $id != null) {
-            return "AND id = '$id' "
-        }
-    }
-
     function getCategory($filter) {
         $returnString = "AND ringtoneData ";
 
@@ -86,7 +80,12 @@
 
     $connect = mysqli_connect($host, $db_username, $db_password, $db_name);
 
-    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat) . getSearchParams($search). byId($id) . orderBy($orderBy) . "LIMIT $limit";
+    if ($id != '' && $id != null) {
+        $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id = $id";
+    }
+    else {
+        $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat) . getSearchParams($search) . orderBy($orderBy) . "LIMIT 10";
+    }
     
     $result = mysqli_query($connect,$query);
 
