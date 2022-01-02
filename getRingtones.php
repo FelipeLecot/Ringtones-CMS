@@ -2,6 +2,7 @@
     header('Access-Control-Allow-Origin: *');
 	include 'Login.php';
 
+    $limit = $_GET['limit'];
     $orderBy = $_GET['order'];
     $cat = $_GET['cat'];
     $last = $_GET['latest'];
@@ -79,7 +80,7 @@
 
     $connect = mysqli_connect($host, $db_username, $db_password, $db_name);
 
-    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat) . getSearchParams($search) . orderBy($orderBy) . "LIMIT 10";
+    $query = "SELECT id, likes, ringtoneData, downloads FROM ringtones WHERE id > $last " . getCategory($cat) . getSearchParams($search) . orderBy($orderBy) . "LIMIT $limit";
     
     $result = mysqli_query($connect,$query);
 
